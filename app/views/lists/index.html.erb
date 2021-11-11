@@ -1,0 +1,13 @@
+<h1>All lists</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+      <%= link_to(list.name, list_path(list)) %>
+      <%= link_to("🗑", list_path(list), method: "delete", data: { confirm: "Are you sure?"}) %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<%= link_to("Create a new list", new_list_path) %>
