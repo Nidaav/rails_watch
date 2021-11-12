@@ -25,9 +25,11 @@
   color: #D23333;
 }
 .button-container {
-  width: 1100;
+  justify-content: center;
   margin: 0 auto;
   display: flex;
-    a {
-    }
+  margin-bottom: 20px;
+}
+.btn-warning {
+  border-radius: 20px;
 }
