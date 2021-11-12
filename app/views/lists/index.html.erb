@@ -2,18 +2,17 @@
   <div class="container">
     <h1>Welcome to the watch list !</h1>
     <p>The brand new app to classify movies</p>
-    <a class="btn btn-success" href="#">Sign up to start classifying</a>
   </div>
 </div>
-
-<ul>
+<div class="container">
+<ul class="cards">
   <% @lists.each do |list| %>
-    <li>
+    <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
       <%= link_to(list.name, list_path(list)) %>
-      <%= link_to("🗑", list_path(list), method: "delete", data: { confirm: "Are you sure?"}) %>
     </li>
   <% end %>
 </ul>
-
 <br>
+<div class="button-container">
 <%= link_to("Create a new list", new_list_path) %>
+</div>
