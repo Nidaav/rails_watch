@@ -5,9 +5,10 @@
     <%= image_tag movie.poster_url, height: 200 %>
     <br><%= movie.overview %>
     <% bookmark = movie.bookmarks.find_by(list: @list) %>
-    <%= link_to("Remove the movie of the list", bookmark_path(bookmark)) %>
-    <br><%= movie.rating %>/10</li>
+    <br><%= movie.rating %>/10
+    <br><%= link_to("Remove from the list", bookmark_path(bookmark), method: :delete) %></li>
   <% end %>
 
 <%= link_to("Add a movie", new_list_bookmark_path(@list)) %>
+<br>
 <%= link_to("Back to the lists", lists_path(@list) ) %>
