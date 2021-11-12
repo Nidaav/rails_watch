@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :lists do
     resources :bookmarks
   end
-  resources :bookmarks, only: %i[destroy]
+  resources :bookmarks, only: %i[destroy], as: 'bookmark'
 end

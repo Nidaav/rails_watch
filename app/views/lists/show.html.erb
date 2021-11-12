@@ -4,7 +4,8 @@
     <li class="list-group-item"><h2><%= movie.title %></h2>
     <%= image_tag movie.poster_url, height: 200 %>
     <br><%= movie.overview %>
-    <%# <%= link_to("Remove the movie of the list", destroy_list_bookmark_bookmark_id_path(@list)) %> %>
+    <% bookmark = movie.bookmarks.find_by(list: @list) %>
+    <%= link_to("Remove the movie of the list", bookmark_path(bookmark)) %>
     <br><%= movie.rating %>/10</li>
   <% end %>
 
