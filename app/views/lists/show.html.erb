@@ -1,2 +1,12 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
+
+<% @list.movies.each do |movie| %>
+    <li class="list-group-item"><h2><%= movie.title %></h2>
+    <%= image_tag movie.poster_url, height: 200 %>
+    <br><%= movie.overview %>
+    <%# <%= link_to("Remove the movie of the list", destroy_list_bookmark_bookmark_id_path(@list)) %> %>
+    <br><%= movie.rating %>/10</li>
+  <% end %>
+
+<%= link_to("Add a movie", new_list_bookmark_path(@list)) %>
+<%= link_to("Back to the lists", lists_path(@list) ) %>

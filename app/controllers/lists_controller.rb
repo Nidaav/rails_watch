@@ -4,10 +4,12 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-  def show; end
+  def show
+    @bookmark = Bookmark.new
+  end
 
   def new
-  @list = List.new
+    @list = List.new
   end
 
   def create
@@ -17,6 +19,19 @@ class ListsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    if @list.update(list_params)
+      redirect_to @list
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @list.destroy
+    redirect_to lists_url
   end
 
   private
